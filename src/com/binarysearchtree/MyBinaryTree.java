@@ -2,6 +2,7 @@ package com.binarysearchtree;
 
 /**
  * Binary Tree
+ *
  * @param <T>
  */
 public class MyBinaryTree<T extends Comparable<T>> {
@@ -84,5 +85,29 @@ public class MyBinaryTree<T extends Comparable<T>> {
         printInOrder(node.left);
         printInOrder(node.right);
         System.out.print(" " + node.data + " ");
+    }
+
+    public boolean searchNode(T data) {
+        if (size == 0) {
+            return false;
+        }
+        return searchNode(root, data) == null ? false : true;
+    }
+
+    public Node<T> searchNode(Node<T> node, T data) {
+        if (data.compareTo(node.data) < 0) {
+            if (node.left != null) {
+                return searchNode(node.left, data);
+            } else {
+                return null;
+            }
+        } else if (data.compareTo(node.data) > 0) {
+            if (node.right != null) {
+                return searchNode(node.right, data);
+            } else {
+                return null;
+            }
+        }
+        return node;
     }
 }

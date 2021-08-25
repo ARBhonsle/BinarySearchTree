@@ -1,5 +1,9 @@
 package com.binarysearchtree;
 
+/**
+ * Binary Tree
+ * @param <T>
+ */
 public class MyBinaryTree<T extends Comparable<T>> {
     public Node<T> root;
     public int size;
